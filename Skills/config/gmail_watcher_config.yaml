@@ -1,0 +1,84 @@
+# Gmail Watcher Configuration
+# Version: 1.0.0
+
+# Polling interval in milliseconds (default: 5 minutes)
+pollingIntervalMs: 300000
+
+# Importance criteria for filtering emails
+importanceCriteria:
+  # Whitelist of sender email addresses (Add your important contacts)
+  senderWhitelist:
+    - "boss@company.com"
+    - "client@important.com"
+    - "hr@company.com"
+    - "finance@company.com"
+  
+  # Keywords to search for in subject/body (Add your important keywords)
+  keywordPatterns:
+    - "urgent"
+    - "important"
+    - "action required"
+    - "deadline"
+    - "asap"
+    - "invoice"
+    - "payment"
+    - "meeting"
+    - "project"
+  
+  # Gmail labels that indicate importance
+  requiredLabels:
+    - "IMPORTANT"
+    - "STARRED"
+  
+  # Logic mode: "OR" (match any) or "AND" (match all)
+  logicMode: "OR"
+
+# Priority detection rules
+priorityRules:
+  # Keywords that trigger high priority
+  highPriorityKeywords:
+    - "urgent"
+    - "asap"
+    - "critical"
+    - "emergency"
+    - "immediately"
+  
+  # VIP senders always get high priority
+  vipSenders:
+    - "ceo@company.com"
+    - "boss@company.com"
+  
+  # Labels that indicate high priority
+  highPriorityLabels:
+    - "IMPORTANT"
+    - "STARRED"
+  
+  # Keywords that trigger medium priority
+  mediumPriorityKeywords:
+    - "follow up"
+    - "reminder"
+    - "deadline"
+    - "review"
+    - "please"
+
+# Rate limiting configuration
+rateLimitConfig:
+  maxRequestsPerMinute: 60
+  maxRequestsPerDay: 10000
+  initialBackoffMs: 1000
+  maxBackoffMs: 60000
+  backoffMultiplier: 2
+
+# Folder paths (relative to workspace root)
+needsActionFolder: "Needs_Action"
+logFolder: "Logs/gmail_watcher"
+
+# Gmail API credentials
+credentialsPath: "config/gmail-credentials.json"
+tokenPath: "config/gmail-token.json"
+
+# Processed email index
+indexPath: ".index/gmail-watcher-processed.json"
+
+# Mark emails as read after processing (requires gmail.modify scope)
+markAsRead: false

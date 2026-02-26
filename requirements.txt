@@ -1,0 +1,34 @@
+# AI Employee System - Python Dependencies
+
+# Core Dependencies
+watchdog==4.0.0              # File system monitoring for watchers
+python-dotenv==1.0.1         # Environment variable management
+pyyaml==6.0.1               # YAML parsing for frontmatter
+
+# Testing
+pytest==8.0.0               # Unit testing framework
+hypothesis==6.98.0          # Property-based testing
+
+# Gmail Integration
+google-auth==2.27.0         # Google authentication
+google-auth-oauthlib==1.2.0 # OAuth2 flow
+google-auth-httplib2==0.2.0 # HTTP library for Google APIs
+google-api-python-client==2.116.0  # Gmail API client
+
+# MCP Server (if using Python-based MCP)
+mcp==1.26.0                 # Model Context Protocol SDK
+
+# Odoo Integration (for Gold Tier)
+odoorpc==0.10.1             # Odoo JSON-RPC client
+
+# Social Media APIs (for Silver/Gold Tier)
+requests==2.31.0            # HTTP requests
+tweepy==4.14.0              # Twitter API
+facebook-sdk==3.1.0         # Facebook API
+
+# WhatsApp Integration (for Silver Tier)
+playwright==1.41.0          # Browser automation for WhatsApp Web
+
+# Utilities
+pathlib2==2.3.7             # Path handling (Python 3.4+ compatibility)
+python-dateutil==2.8.2      # Date parsing

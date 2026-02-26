@@ -1,0 +1,130 @@
+[INFO] Loaded processed index with 30 entries
+[INFO] Successfully authenticated with Gmail API
+[INFO] Polling cycle initiated
+[INFO] Retrieved 50 unread emails
+[INFO] Important email detected: Business Development Executive @ Mywater (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152656_business-development-executive-mywater.md
+[INFO] [DRY RUN] Would save processed index with 31 entries
+[INFO] Skipping duplicate email: 19c7eff96db48ff7
+[INFO] Important email detected: Social Media & Email Campaign Manager (evening job) at Lumenco Canada in Karachi and 5 more new jobs (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152657_social-media-email-campaign-manager-evening-job-at.md
+[INFO] [DRY RUN] Would save processed index with 32 entries
+[INFO] Skipping duplicate email: 19c7ebca7996fc4f
+[INFO] Important email detected: 1 new front end developer job in Karachi Nazimabad (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152658_1-new-front-end-developer-job-in-karachi-nazimabad.md
+[INFO] [DRY RUN] Would save processed index with 33 entries
+[INFO] Important email detected: 1 new agentic ai job in Karachi Nazimabad (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152658_1-new-agentic-ai-job-in-karachi-nazimabad.md
+[INFO] [DRY RUN] Would save processed index with 34 entries
+[INFO] Skipping duplicate email: 19c7af1ebcd71ad0
+[INFO] Skipping duplicate email: 19c7a26232011a7b
+[INFO] Important email detected: Indeed Application: Floor Coordinator/ Unit Receptionist (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152659_indeed-application-floor-coordinator-unit-receptio.md
+[INFO] [DRY RUN] Would save processed index with 35 entries
+[INFO] Important email detected: Indeed Application: Web developer (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152700_indeed-application-web-developer.md
+[INFO] [DRY RUN] Would save processed index with 36 entries
+[INFO] Skipping duplicate email: 19c79c22b28b5c37
+[INFO] Important email detected: Associate Product Manager at Dynamic Resources Private Limited in Karachi and 5 more new jobs (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152701_associate-product-manager-at-dynamic-resources-pri.md
+[INFO] [DRY RUN] Would save processed index with 37 entries
+[INFO] Important email detected: Indeed Application: HR Executive (Female) (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152701_indeed-application-hr-executive-female.md
+[INFO] [DRY RUN] Would save processed index with 38 entries
+[INFO] Important email detected: Senior Full Stack Web Developer at Propstar Technologies and 1 more front end developer job in Karachi Nazimabad for you! (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152701_senior-full-stack-web-developer-at-propstar-techno.md
+[INFO] [DRY RUN] Would save processed index with 39 entries
+[INFO] Important email detected: 1 new Labs job in Karachi Nazimabad (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152702_1-new-labs-job-in-karachi-nazimabad.md
+[INFO] [DRY RUN] Would save processed index with 40 entries
+[INFO] Important email detected: Indeed Application: React JS (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152702_indeed-application-react-js.md
+[INFO] [DRY RUN] Would save processed index with 41 entries
+[INFO] Important email detected: The Airtable Effect | NYC Buildathon + Introducing Superagent (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152703_the-airtable-effect-nyc-buildathon-introducing-sup.md
+[INFO] [DRY RUN] Would save processed index with 42 entries
+[INFO] Skipping duplicate email: 19c759af0d573d50
+[INFO] Important email detected: Indeed Application: Web Developer (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152703_indeed-application-web-developer.md
+[INFO] [DRY RUN] Would save processed index with 43 entries
+[INFO] Important email detected: Weekend Lab: A Podcast of Your Own (Priority: low)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152704_weekend-lab-a-podcast-of-your-own.md
+[INFO] [DRY RUN] Would save processed index with 44 entries
+[INFO] Important email detected: Sr. Software Engineer - III (Back-end) at Pakistan Single Window and 2 more front end developer jobs in Karachi Nazimabad for you! (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152704_sr-software-engineer-iii-back-end-at-pakistan-sing.md
+[INFO] [DRY RUN] Would save processed index with 45 entries
+[INFO] Important email detected: 1 new Labs job in Karachi Nazimabad (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152705_1-new-labs-job-in-karachi-nazimabad.md
+[INFO] [DRY RUN] Would save processed index with 46 entries
+[INFO] Important email detected: Indeed Application: Frontend Developer (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152705_indeed-application-frontend-developer.md
+[INFO] [DRY RUN] Would save processed index with 47 entries
+[INFO] Important email detected: Senior WordPress Developer @ CreativePixels (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152705_senior-wordpress-developer-creativepixels.md
+[INFO] [DRY RUN] Would save processed index with 48 entries
+[INFO] Skipping duplicate email: 19c6fb8dec435785
+[INFO] Important email detected: Full Stack Developer - MERN at Scaleup Connect and 13 more front end developer jobs in Karachi Nazimabad for you! (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152706_full-stack-developer-mern-at-scaleup-connect-and-1.md
+[INFO] [DRY RUN] Would save processed index with 49 entries
+[INFO] Important email detected: You did it—congrats! (Priority: low)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152707_you-did-itcongrats.md
+[INFO] [DRY RUN] Would save processed index with 50 entries
+[INFO] Important email detected: Indeed Application: Senior Software Engineer (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152708_indeed-application-senior-software-engineer.md
+[INFO] [DRY RUN] Would save processed index with 51 entries
+[INFO] Important email detected: Creative Social Media Executive at Ali Machinery in Karachi and 1 more new job (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152708_creative-social-media-executive-at-ali-machinery-i.md
+[INFO] [DRY RUN] Would save processed index with 52 entries
+[INFO] Important email detected: Senior Software Engineer @ Al Rafay Consulting (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152709_senior-software-engineer-al-rafay-consulting.md
+[INFO] [DRY RUN] Would save processed index with 53 entries
+[INFO] Skipping duplicate email: 19c68e7741622afc
+[INFO] Important email detected: Indeed Application: Full Stack Developer (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152709_indeed-application-full-stack-developer.md
+[INFO] [DRY RUN] Would save processed index with 54 entries
+[INFO] Important email detected: Web Developer (CMS Specialist) at Chameleon Ideas Inc. and 18 more front end developer jobs in Karachi Nazimabad for you! (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152710_web-developer-cms-specialist-at-chameleon-ideas-in.md
+[INFO] [DRY RUN] Would save processed index with 55 entries
+[INFO] Skipping duplicate email: 19c654d75dd8d429
+[INFO] Skipping duplicate email: 19c652f9b6c03e83
+[INFO] Important email detected: Software Engineer @ Sorvox Groups (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152711_software-engineer-sorvox-groups.md
+[INFO] [DRY RUN] Would save processed index with 56 entries
+[INFO] Important email detected: Web Developer (CMS Specialist) at Chameleon Ideas Inc. and 18 more front end developer jobs in Karachi Nazimabad for you! (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152712_web-developer-cms-specialist-at-chameleon-ideas-in.md
+[INFO] [DRY RUN] Would save processed index with 57 entries
+[INFO] Important email detected: 1 new utf labs job in Karachi (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152712_1-new-utf-labs-job-in-karachi.md
+[INFO] [DRY RUN] Would save processed index with 58 entries
+[INFO] Skipping duplicate email: 19c641f2d1256b20
+[INFO] Important email detected: Senior AI/ML Engineer at HR Ways and 1 more agentic ai job in Karachi Nazimabad for you! (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152713_senior-aiml-engineer-at-hr-ways-and-1-more-agentic.md
+[INFO] [DRY RUN] Would save processed index with 59 entries
+[INFO] Important email detected: Web App Developer (Full Stack) MERN or MEAN @ Crossway Consulting (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152713_web-app-developer-full-stack-mern-or-mean-crossway.md
+[INFO] [DRY RUN] Would save processed index with 60 entries
+[INFO] Skipping duplicate email: 19c603ce0c68690e
+[INFO] Important email detected: Senior IT Executive at HQ-360 in Karachi and 2 more new jobs (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152714_senior-it-executive-at-hq-360-in-karachi-and-2-mor.md
+[INFO] [DRY RUN] Would save processed index with 61 entries
+[INFO] Skipping duplicate email: 19c5efdffa7265d5
+[INFO] Skipping duplicate email: 19c5e1f5a523c52b
+[INFO] Important email detected: Lead Blockchain Developer Role at Viral Vind Technologies Private LTD and 2 more agentic ai jobs in Karachi Nazimabad for you! (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152715_lead-blockchain-developer-role-at-viral-vind-techn.md
+[INFO] [DRY RUN] Would save processed index with 62 entries
+[INFO] Important email detected: Junior Developer at Digital Arcanum and 7 more front end developer jobs in Karachi Nazimabad for you! (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152716_junior-developer-at-digital-arcanum-and-7-more-fro.md
+[INFO] [DRY RUN] Would save processed index with 63 entries
+[INFO] Skipping duplicate email: 19c5daa9c99fc16c
+[INFO] Important email detected: IT Support Engineer (Azure/Entra Meraki) @ Dynamic Accounting Solutions Inc (Priority: medium)
+[INFO] [DRY RUN] Would create file: Pending_Approval\20260221_152717_it-support-engineer-azureentra-meraki-dynamic-acco.md
+[INFO] [DRY RUN] Would save processed index with 64 entries
+[INFO] Skipping duplicate email: 19c5ad45dc6037f5
+[INFO] Polling cycle completed in 25.06s: {'retrieved': 50, 'processed': 34, 'filtered': 16, 'created': 34, 'errors': 0}
+
+Poll Results:
+  Retrieved: 50
+  Processed: 34
+  Filtered: 16
+  Created: 34
+  Errors: 0

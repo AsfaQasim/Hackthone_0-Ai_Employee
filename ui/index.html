@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Employee Dashboard - Bronze Tier</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="icon">🤖</span>
+                <h1>AI Employee System</h1>
+            </div>
+            <div class="status-badge">
+                <span class="badge bronze">🥉 Bronze Tier</span>
+                <span class="badge active" id="systemStatus">● Active</span>
+            </div>
+        </header>
+
+        <!-- Main Dashboard -->
+        <main class="dashboard">
+            <!-- Stats Cards -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📧</div>
+                    <div class="stat-content">
+                        <h3 id="emailCount">23</h3>
+                        <p>Emails Processed</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏳</div>
+                    <div class="stat-content">
+                        <h3 id="pendingCount">23</h3>
+                        <p>Needs Action</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-content">
+                        <h3 id="completedCount">0</h3>
+                        <p>Completed</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🔴</div>
+                    <div class="stat-content">
+                        <h3 id="urgentCount">5</h3>
+                        <p>High Priority</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Control Panel -->
+            <section class="control-panel">
+                <h2>🎛️ Control Panel</h2>
+                <div class="controls">
+                    <button class="btn btn-primary" onclick="pollEmails()">
+                        <span class="btn-icon">🔄</span>
+                        Poll Gmail Now
+                    </button>
+                    <button class="btn btn-success" onclick="startMonitoring()">
+                        <span class="btn-icon">▶️</span>
+                        Start Monitoring
+                    </button>
+                    <button class="btn btn-danger" onclick="stopMonitoring()">
+                        <span class="btn-icon">⏹️</span>
+                        Stop Monitoring
+                    </button>
+                    <button class="btn btn-secondary" onclick="refreshDashboard()">
+                        <span class="btn-icon">🔃</span>
+                        Refresh
+                    </button>
+                </div>
+            </section>
+
+            <!-- Activity Log -->
+            <section class="activity-section">
+                <h2>📊 Recent Activity</h2>
+                <div class="activity-log" id="activityLog">
+                    <div class="activity-item">
+                        <span class="activity-time">Just now</span>
+                        <span class="activity-text">System initialized</span>
+                        <span class="activity-badge success">✓</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Email List -->
+            <section class="email-section">
+                <div class="section-header">
+                    <h2>📬 Needs Action</h2>
+                    <div class="filters">
+                        <button class="filter-btn active" onclick="filterEmails('all')">All</button>
+                        <button class="filter-btn" onclick="filterEmails('high')">🔴 High</button>
+                        <button class="filter-btn" onclick="filterEmails('medium')">🟡 Medium</button>
+                        <button class="filter-btn" onclick="filterEmails('low')">🟢 Low</button>
+                    </div>
+                </div>
+                <div class="email-list" id="emailList">
+                    <div class="loading">Loading emails...</div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Last Updated: <span id="lastUpdate">--</span></p>
+            <p>Gmail Watcher v1.0.0 | Bronze Tier Active</p>
+        </footer>
+    </div>
+
+    <!-- Modal for Email Details -->
+    <div class="modal" id="emailModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div id="modalBody">
+                <!-- Email details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,606 @@
+"""
+Vault Manager
+
+Manages Obsidian vault initialization and structure.
+Creates required folders and template files for the AI Employee System.
+"""
+
+import logging
+from pathlib import Path
+from datetime import datetime
+from typing import List, Dict, Optional
+
+
+class VaultManager:
+    """
+    Manages the Obsidian vault structure and initialization.
+    
+    Creates and maintains:
+    - Folder structure (/Inbox, /Needs_Action, /Done, /Plans, /Pending_Approval)
+    - Template files (Dashboard.md, Company_Handbook.md)
+    - Vault configuration
+    """
+    
+    def __init__(self, vault_path: str = "."):
+        """
+        Initialize the Vault Manager.
+        
+        Args:
+            vault_path: Path to the Obsidian vault root directory
+        """
+        self.vault_path = Path(vault_path).absolute()
+        self.logger = logging.getLogger("vault_manager")
+        
+        # Configure logging if not already configured
+        if not logging.getLogger().handlers:
+            logging.basicConfig(
+                level=logging.INFO,
+                format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+            )
+        
+        # Define required folders
+        self.required_folders = [
+            "Inbox",
+            "Needs_Action",
+            "Done",
+            "Plans",
+            "Pending_Approval",
+            "Approved",
+            "Logs",
+            "Specs",
+            "config"
+        ]
+    
+    def initialize_vault(self) -> bool:
+        """
+        Initialize the complete vault structure.
+        
+        Creates all required folders and template files.
+        
+        Returns:
+            True if successful, False otherwise
+        """
+        self.logger.info(f"Initializing vault at: {self.vault_path}")
+        
+        try:
+            # Create folders
+            if not self.create_folders():
+                return False
+            
+            # Create template files
+            if not self.create_dashboard():
+                return False
+            
+            if not self.create_company_handbook():
+                return False
+            
+            self.logger.info("Vault initialization complete")
+            return True
+        
+        except Exception as e:
+            self.logger.error(f"Vault initialization failed: {e}", exc_info=True)
+            return False
+    
+    def create_folders(self) -> bool:
+        """
+        Create all required folders in the vault.
+        
+        Returns:
+            True if successful, False otherwise
+        """
+        self.logger.info("Creating vault folders...")
+        
+        try:
+            for folder in self.required_folders:
+                folder_path = self.vault_path / folder
+                
+                if folder_path.exists():
+                    self.logger.debug(f"Folder already exists: {folder}")
+                else:
+                    folder_path.mkdir(parents=True, exist_ok=True)
+                    self.logger.info(f"Created folder: {folder}")
+                    
+                    # Create .gitkeep to preserve empty folders in git
+                    gitkeep = folder_path / ".gitkeep"
+                    if not gitkeep.exists():
+                        gitkeep.touch()
+            
+            return True
+        
+        except Exception as e:
+            self.logger.error(f"Failed to create folders: {e}", exc_info=True)
+            return False
+    
+    def create_dashboard(self) -> bool:
+        """
+        Create or update Dashboard.md template.
+        
+        Returns:
+            True if successful, False otherwise
+        """
+        dashboard_path = self.vault_path / "Dashboard.md"
+        
+        if dashboard_path.exists():
+            self.logger.info("Dashboard.md already exists, skipping creation")
+            return True
+        
+        self.logger.info("Creating Dashboard.md...")
+        
+        dashboard_content = f"""# AI Employee Dashboard
+
+**Last Updated**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+
+## System Status
+
+- **Orchestrator**: Not Started
+- **Watchers**: 0/7 Active
+- **MCP Servers**: 0/3 Healthy
+- **Pending Approvals**: 0
+
+## Today's Activity
+
+- **Emails Processed**: 0
+- **Social Posts Created**: 0
+- **Tasks Completed**: 0
+- **Approvals Pending**: 0
+
+## Pending Actions
+
+(No pending actions)
+
+## Recent Completions
+
+(No recent completions)
+
+## Alerts
+
+- ℹ️ System initialized
+- ℹ️ Waiting for first watcher execution
+
+---
+
+## Quick Links
+
+- [Inbox](Inbox/) - New items from watchers
+- [Needs Action](Needs_Action/) - Items requiring action
+- [Plans](Plans/) - Execution plans
+- [Pending Approval](Pending_Approval/) - Items awaiting approval
+- [Done](Done/) - Completed items
+
+---
+
+## System Configuration
+
+- **Vault Path**: {self.vault_path}
+- **Watchers**: Gmail, WhatsApp, LinkedIn, Facebook, Instagram, Twitter, File System
+- **MCP Servers**: Email, Social Media, Odoo
+- **Scheduler**: Every 5 minutes
+
+---
+
+*Auto-generated by VaultManager*  
+*Last initialization: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}*
+"""
+        
+        try:
+            dashboard_path.write_text(dashboard_content, encoding='utf-8')
+            self.logger.info("Dashboard.md created successfully")
+            return True
+        except Exception as e:
+            self.logger.error(f"Failed to create Dashboard.md: {e}", exc_info=True)
+            return False
+    
+    def create_company_handbook(self) -> bool:
+        """
+        Create or update Company_Handbook.md template.
+        
+        Returns:
+            True if successful, False otherwise
+        """
+        handbook_path = self.vault_path / "Company_Handbook.md"
+        
+        if handbook_path.exists():
+            self.logger.info("Company_Handbook.md already exists, skipping creation")
+            return True
+        
+        self.logger.info("Creating Company_Handbook.md...")
+        
+        handbook_content = """# Company Handbook
+
+**Version**: 1.0  
+**Last Updated**: {date}
+
+## Purpose
+
+This handbook contains the rules, guidelines, and context for your AI Employee. It serves as the "memory" and "personality" of your autonomous assistant.
+
+---
+
+## Communication Guidelines
+
+### Email Communication
+
+- **Tone**: Professional and friendly
+- **Response Time**: Within 24 hours for important emails
+- **Signature**: Use standard company signature
+- **Auto-Reply**: Only for urgent matters
+
+### WhatsApp Communication
+
+- **Tone**: Casual but professional
+- **Response Time**: Within 2 hours during business hours
+- **Keywords to Flag**: "urgent", "asap", "help", "invoice", "payment"
+
+### Social Media
+
+- **Posting Schedule**: Monday, Wednesday, Friday at 10:00 AM
+- **Tone**: Engaging and informative
+- **Topics**: Business updates, industry insights, tips
+- **Hashtags**: Use 3-5 relevant hashtags
+
+---
+
+## Approval Thresholds
+
+### Automatic Approval (No human review needed)
+
+- Internal notifications
+- Routine status updates
+- Scheduled social media posts (pre-approved content)
+
+### Requires Approval (Human review required)
+
+- **Emails**: All external emails to new contacts
+- **Payments**: All payments over $50
+- **Social Posts**: All posts with new content
+- **Invoices**: All invoice creation
+- **Contracts**: All contract-related actions
+
+### Always Block (Never execute without explicit approval)
+
+- Account deletions
+- Large payments (>$500)
+- Contract signing
+- Data exports
+- System configuration changes
+
+---
+
+## Business Rules
+
+### Working Hours
+
+- **Business Hours**: 9:00 AM - 6:00 PM (Monday-Friday)
+- **After Hours**: Only urgent matters
+- **Weekends**: Emergency only
+
+### Priority Levels
+
+1. **Urgent**: Client issues, payment problems, system errors
+2. **High**: New client inquiries, pending invoices, important emails
+3. **Medium**: Routine emails, social media, general tasks
+4. **Low**: Administrative tasks, filing, organization
+
+### Client Management
+
+- **Response Time**: Within 24 hours
+- **Follow-up**: After 3 days if no response
+- **Escalation**: Flag if client is unhappy or issue unresolved after 2 follow-ups
+
+---
+
+## Financial Guidelines
+
+### Invoicing
+
+- **Payment Terms**: Net 30 days
+- **Late Fee**: 5% after 30 days
+- **Follow-up**: Send reminder at 15 days, 25 days, and 35 days
+
+### Expenses
+
+- **Software**: Up to $100/month auto-approved
+- **Services**: Requires approval
+- **Subscriptions**: Review quarterly for usage
+
+### Revenue Tracking
+
+- Track all incoming payments
+- Categorize by project/client
+- Generate weekly revenue reports
+
+---
+
+## Project Management
+
+### Task Prioritization
+
+1. Client deliverables (deadlines)
+2. Revenue-generating activities
+3. Administrative tasks
+4. Learning and improvement
+
+### Status Updates
+
+- **Daily**: Update Dashboard.md
+- **Weekly**: Generate CEO Briefing
+- **Monthly**: Business and Accounting Audit
+
+---
+
+## Social Media Strategy
+
+### Content Types
+
+- **Educational**: Tips, how-tos, industry insights (40%)
+- **Promotional**: Services, case studies, testimonials (30%)
+- **Engagement**: Questions, polls, discussions (20%)
+- **Personal**: Behind-the-scenes, team updates (10%)
+
+### Posting Guidelines
+
+- Use high-quality images
+- Include call-to-action
+- Respond to comments within 24 hours
+- Track engagement metrics
+
+---
+
+## Security and Privacy
+
+### Sensitive Information
+
+- **Never share**: Passwords, API keys, client financial data
+- **Encrypt**: All financial documents
+- **Backup**: Daily backups of critical data
+
+### Data Retention
+
+- **Emails**: Keep for 1 year
+- **Financial Records**: Keep for 7 years
+- **Logs**: Keep for 90 days
+- **Completed Tasks**: Archive after 30 days
+
+---
+
+## Emergency Procedures
+
+### System Failures
+
+1. Log the error
+2. Attempt automatic recovery
+3. If recovery fails, create alert in Dashboard
+4. Notify human via email
+
+### Client Emergencies
+
+1. Flag as urgent
+2. Create approval request
+3. Notify human immediately
+4. Provide context and recommended action
+
+---
+
+## Continuous Improvement
+
+### Weekly Review
+
+- Review completed tasks
+- Identify bottlenecks
+- Suggest process improvements
+- Update this handbook as needed
+
+### Monthly Audit
+
+- Review all approvals and rejections
+- Analyze response times
+- Check for missed opportunities
+- Optimize workflows
+
+---
+
+## Custom Rules
+
+(Add your specific business rules here)
+
+### Example Custom Rules
+
+- Always CC manager on client emails
+- Flag any mention of competitors
+- Prioritize emails from VIP clients
+- Auto-archive newsletters after reading
+
+---
+
+*This handbook should be updated regularly to reflect your business needs and preferences.*
+
+**Last Updated**: {date}
+""".format(date=datetime.now().strftime('%Y-%m-%d'))
+        
+        try:
+            handbook_path.write_text(handbook_content, encoding='utf-8')
+            self.logger.info("Company_Handbook.md created successfully")
+            return True
+        except Exception as e:
+            self.logger.error(f"Failed to create Company_Handbook.md: {e}", exc_info=True)
+            return False
+    
+    def verify_structure(self) -> Dict[str, bool]:
+        """
+        Verify that all required vault components exist.
+        
+        Returns:
+            Dictionary with component names and their existence status
+        """
+        self.logger.info("Verifying vault structure...")
+        
+        status = {}
+        
+        # Check folders
+        for folder in self.required_folders:
+            folder_path = self.vault_path / folder
+            status[f"folder_{folder}"] = folder_path.exists() and folder_path.is_dir()
+        
+        # Check template files
+        status["Dashboard.md"] = (self.vault_path / "Dashboard.md").exists()
+        status["Company_Handbook.md"] = (self.vault_path / "Company_Handbook.md").exists()
+        
+        # Log results
+        all_exist = all(status.values())
+        if all_exist:
+            self.logger.info("✓ Vault structure verified - all components exist")
+        else:
+            missing = [k for k, v in status.items() if not v]
+            self.logger.warning(f"⚠️  Missing components: {', '.join(missing)}")
+        
+        return status
+    
+    def get_folder_stats(self) -> Dict[str, int]:
+        """
+        Get statistics about vault folders.
+        
+        Returns:
+            Dictionary with folder names and file counts
+        """
+        stats = {}
+        
+        for folder in self.required_folders:
+            folder_path = self.vault_path / folder
+            if folder_path.exists():
+                # Count .md files (excluding .gitkeep)
+                md_files = list(folder_path.glob("*.md"))
+                stats[folder] = len(md_files)
+            else:
+                stats[folder] = 0
+        
+        return stats
+    
+    def update_dashboard_stats(self) -> bool:
+        """
+        Update Dashboard.md with current statistics.
+        
+        Returns:
+            True if successful, False otherwise
+        """
+        dashboard_path = self.vault_path / "Dashboard.md"
+        
+        if not dashboard_path.exists():
+            self.logger.warning("Dashboard.md does not exist, cannot update stats")
+            return False
+        
+        try:
+            # Get current stats
+            stats = self.get_folder_stats()
+            
+            # Read current dashboard
+            content = dashboard_path.read_text(encoding='utf-8')
+            
+            # Update timestamp
+            import re
+            content = re.sub(
+                r'\*\*Last Updated\*\*: .*',
+                f'**Last Updated**: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}',
+                content
+            )
+            
+            # Write back
+            dashboard_path.write_text(content, encoding='utf-8')
+            
+            self.logger.info("Dashboard stats updated")
+            return True
+        
+        except Exception as e:
+            self.logger.error(f"Failed to update dashboard stats: {e}", exc_info=True)
+            return False
+
+
+def initialize_vault(vault_path: str = ".") -> bool:
+    """
+    Convenience function to initialize a vault.
+    
+    Args:
+        vault_path: Path to the vault root directory
+        
+    Returns:
+        True if successful, False otherwise
+    """
+    manager = VaultManager(vault_path)
+    return manager.initialize_vault()
+
+
+# Example usage and CLI
+if __name__ == "__main__":
+    import argparse
+    
+    parser = argparse.ArgumentParser(description="Manage Obsidian Vault for AI Employee")
+    parser.add_argument(
+        "action",
+        choices=["init", "verify", "stats"],
+        help="Action to perform"
+    )
+    parser.add_argument(
+        "--vault-path",
+        default=".",
+        help="Path to vault root directory (default: current directory)"
+    )
+    
+    args = parser.parse_args()
+    
+    # Configure logging
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    )
+    
+    manager = VaultManager(args.vault_path)
+    
+    if args.action == "init":
+        print("\n" + "="*60)
+        print("INITIALIZING VAULT")
+        print("="*60 + "\n")
+        
+        success = manager.initialize_vault()
+        
+        if success:
+            print("\n✓ Vault initialized successfully!")
+            print(f"\nVault location: {manager.vault_path}")
+            print("\nCreated:")
+            for folder in manager.required_folders:
+                print(f"  - {folder}/")
+            print("  - Dashboard.md")
+            print("  - Company_Handbook.md")
+        else:
+            print("\n✗ Vault initialization failed")
+            sys.exit(1)
+    
+    elif args.action == "verify":
+        print("\n" + "="*60)
+        print("VERIFYING VAULT STRUCTURE")
+        print("="*60 + "\n")
+        
+        status = manager.verify_structure()
+        
+        for component, exists in status.items():
+            symbol = "✓" if exists else "✗"
+            print(f"{symbol} {component}")
+        
+        all_exist = all(status.values())
+        if all_exist:
+            print("\n✓ All components exist")
+        else:
+            print("\n✗ Some components are missing")
+            sys.exit(1)
+    
+    elif args.action == "stats":
+        print("\n" + "="*60)
+        print("VAULT STATISTICS")
+        print("="*60 + "\n")
+        
+        stats = manager.get_folder_stats()
+        
+        print("File counts by folder:")
+        for folder, count in stats.items():
+            print(f"  {folder}: {count} files")
+        
+        total = sum(stats.values())
+        print(f"\nTotal: {total} files")

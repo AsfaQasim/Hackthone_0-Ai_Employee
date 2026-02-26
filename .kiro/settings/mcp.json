@@ -1,0 +1,34 @@
+{
+  "mcpServers": {
+    "whatsapp": {
+      "command": "python",
+      "args": ["-m", "Skills.mcp_servers.whatsapp_mcp_server"],
+      "env": {
+        "WHATSAPP_SESSION_PATH": ".whatsapp_session",
+        "VAULT_PATH": "."
+      },
+      "disabled": false,
+      "autoApprove": []
+    },
+    "email": {
+      "command": "python",
+      "args": ["-m", "Skills.mcp_servers.email_mcp_server"],
+      "env": {
+        "GMAIL_CLIENT_ID": "${GMAIL_CLIENT_ID}",
+        "GMAIL_CLIENT_SECRET": "${GMAIL_CLIENT_SECRET}",
+        "GMAIL_REFRESH_TOKEN": "${GMAIL_REFRESH_TOKEN}"
+      },
+      "disabled": false,
+      "autoApprove": []
+    },
+    "social_media": {
+      "command": "python",
+      "args": ["-m", "Skills.mcp_servers.social_media_mcp_server"],
+      "env": {
+        "VAULT_PATH": "."
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}

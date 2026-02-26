@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Employee Dashboard - Bronze Tier</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Employee Dashboard</h1>
+            <div class="stats">
+                <div class="stat-card">
+                    <span class="stat-number" id="totalTasks">0</span>
+                    <span class="stat-label">Total Tasks</span>
+                </div>
+                <div class="stat-card high">
+                    <span class="stat-number" id="highPriority">0</span>
+                    <span class="stat-label">High Priority</span>
+                </div>
+                <div class="stat-card medium">
+                    <span class="stat-number" id="mediumPriority">0</span>
+                    <span class="stat-label">Medium Priority</span>
+                </div>
+                <div class="stat-card low">
+                    <span class="stat-number" id="lowPriority">0</span>
+                    <span class="stat-label">Low Priority</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="controls">
+            <input type="text" id="searchBox" placeholder="🔍 Search emails..." />
+            <select id="filterPriority">
+                <option value="all">All Priorities</option>
+                <option value="high">High Priority</option>
+                <option value="medium">Medium Priority</option>
+                <option value="low">Low Priority</option>
+            </select>
+            <button id="refreshBtn">🔄 Refresh</button>
+        </div>
+
+        <div id="emailList" class="email-list">
+            <div class="loading">Loading emails...</div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

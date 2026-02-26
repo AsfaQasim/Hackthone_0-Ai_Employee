@@ -1,0 +1,42 @@
+{
+  "name": "gmail-watcher-skill",
+  "version": "1.0.0",
+  "description": "A monitoring component that integrates with Gmail via MCP to detect important unread emails and create actionable markdown files in an Obsidian vault",
+  "main": "dist/main.js",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:unit": "vitest run --grep -Property",
+    "test:property": "vitest run --grep Property",
+    "test:coverage": "vitest run --coverage",
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "dashboard": "node server.js"
+  },
+  "keywords": [
+    "gmail",
+    "watcher",
+    "mcp",
+    "obsidian",
+    "email",
+    "monitoring"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^25.2.3",
+    "@types/turndown": "^5.0.6",
+    "fast-check": "^4.5.3",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  },
+  "dependencies": {
+    "axios": "^1.13.5",
+    "dotenv": "^17.3.1",
+    "express": "^4.22.1",
+    "js-yaml": "^4.1.1",
+    "turndown": "^7.2.2"
+  }
+}

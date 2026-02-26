@@ -1,0 +1,62 @@
+# Secrets and credentials
+.env
+config/gmail-credentials.json
+config/gmail-token.json
+*.pem
+*.key
+
+# Processed email index
+.index/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+
+# Node
+node_modules/
+dist/
+
+# Logs
+*.log
+Logs/**/*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Obsidian
+.obsidian/
+
+# Testing
+.pytest_cache/
+.hypothesis/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
+# WhatsApp session
+config/whatsapp_session/
+
+# Vault content (keep structure, not content)
+Inbox/*.md
+Needs_Action/*.md
+Done/*.md
+Plans/*.md
+Pending_Approval/*.md
+Approved/*.md
+
+# Keep .gitkeep files
+!**/.gitkeep

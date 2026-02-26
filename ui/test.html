@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard Test</title>
+</head>
+<body>
+    <h1>Dashboard Test</h1>
+    <button onclick="testAPI()">Test API</button>
+    <button onclick="testOpen()">Test Open File</button>
+    <div id="result"></div>
+    
+    <script>
+        async function testAPI() {
+            try {
+                const response = await fetch('/api/emails');
+                const data = await response.json();
+                document.getElementById('result').innerHTML = 
+                    `<pre>Loaded ${data.length} emails\nFirst email: ${JSON.stringify(data[0], null, 2)}</pre>`;
+                console.log('API Response:', data);
+            } catch (error) {
+                document.getElementById('result').innerHTML = 
+                    `<pre style="color: red;">Error: ${error.message}</pre>`;
+                console.error('API Error:', error);
+            }
+        }
+        
+        function testOpen() {
+            window.open('../Needs_Action/20260218_135502_associate-project-manager-at-digital-gravity-in-ka.md', '_blank');
+        }
+    </script>
+</body>
+</html>

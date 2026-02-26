@@ -1,0 +1,59 @@
+# Gmail Watcher TEST Configuration
+# This config will process more emails for testing purposes
+
+pollingIntervalMs: 300000
+
+# Relaxed criteria to catch test emails
+importanceCriteria:
+  senderWhitelist: []
+  
+  # Add common keywords from your emails
+  keywordPatterns:
+    - "job"
+    - "application"
+    - "developer"
+    - "indeed"
+    - "linkedin"
+    - "urgent"
+    - "important"
+  
+  requiredLabels:
+    - "IMPORTANT"
+    - "STARRED"
+  
+  logicMode: "OR"
+
+priorityRules:
+  highPriorityKeywords:
+    - "urgent"
+    - "asap"
+    - "critical"
+    - "emergency"
+  
+  vipSenders: []
+  
+  highPriorityLabels:
+    - "IMPORTANT"
+    - "STARRED"
+  
+  mediumPriorityKeywords:
+    - "application"
+    - "job"
+    - "interview"
+    - "follow up"
+
+rateLimitConfig:
+  maxRequestsPerMinute: 60
+  maxRequestsPerDay: 10000
+  initialBackoffMs: 1000
+  maxBackoffMs: 60000
+  backoffMultiplier: 2
+
+needsActionFolder: "Needs_Action"
+pendingApprovalFolder: "Pending_Approval"
+logFolder: "Logs/gmail_watcher"
+credentialsPath: "config/gmail-credentials.json"
+tokenPath: "config/gmail-token.json"
+indexPath: ".index/gmail-watcher-processed.json"
+markAsRead: false
+useApprovalWorkflow: true
