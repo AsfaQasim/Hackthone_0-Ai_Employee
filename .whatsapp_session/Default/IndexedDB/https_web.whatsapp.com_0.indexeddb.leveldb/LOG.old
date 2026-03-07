@@ -1,3 +1,4 @@
-2026/02/25-19:19:54.474 cae8 Reusing MANIFEST F:\hackthone_0\.whatsapp_session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2026/02/25-19:19:54.476 cae8 Recovering log #1341
-2026/02/25-19:19:54.538 cae8 Reusing old log F:\hackthone_0\.whatsapp_session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/001341.log 
+2026/03/05-20:11:28.985 a2b0 Reusing MANIFEST F:\hackthone_0\.whatsapp_session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/03/05-20:11:29.033 a2b0 Recovering log #1469
+2026/03/05-20:11:29.044 a2b0 Reusing old log F:\hackthone_0\.whatsapp_session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/001469.log 
+2026/03/05-20:11:29.044 a2b0 Delete type=2 #1468

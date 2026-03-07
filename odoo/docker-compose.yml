@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database for Odoo
+  db:
+    image: postgres:15
+    container_name: odoo_postgres
+    environment:
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo_password
+      - POSTGRES_DB=postgres
+    volumes:
+      - odoo_postgresql_data:/var/lib/postgresql/data
+    networks:
+      - odoo_network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U odoo"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Odoo Community Edition
+  odoo:
+    image: odoo:17.0
+    container_name: odoo_community
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8069:8069"  # Web interface
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo_password
+    volumes:
+      - odoo_data:/var/lib/odoo
+      - ./odoo/addons:/mnt/extra-addons
+      - ./odoo/config:/etc/odoo
+    networks:
+      - odoo_network
+    restart: unless-stopped
+    command: --dev=reload
+
+  # Odoo Proxy (Optional - for HTTPS)
+  odoo-proxy:
+    image: nginx:alpine
+    container_name: odoo_nginx
+    depends_on:
+      - odoo
+    ports:
+      - "80:80"
+      # Uncomment below for HTTPS
+      # - "443:443"
+    volumes:
+      - ./odoo/nginx.conf:/etc/nginx/nginx.conf:ro
+      # - ./odoo/ssl:/etc/nginx/ssl:ro  # For HTTPS
+    networks:
+      - odoo_network
+    restart: unless-stopped
+
+volumes:
+  odoo_postgresql_data:
+    driver: local
+  odoo_data:
+    driver: local
+
+networks:
+  odoo_network:
+    driver: bridge
