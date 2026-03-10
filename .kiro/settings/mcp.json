@@ -29,6 +29,18 @@
       },
       "disabled": false,
       "autoApprove": []
+    },
+    "linkedin": {
+      "command": "python",
+      "args": ["-m", "Skills.mcp_servers.linkedin_mcp_server"],
+      "env": {
+        "USER_DATA_DIR": ".linkedin_session",
+        "HEADLESS": "true",
+        "LOG_LEVEL": "WARNING",
+        "TIMEOUT": "5000"
+      },
+      "disabled": false,
+      "autoApprove": []
     }
   }
 }

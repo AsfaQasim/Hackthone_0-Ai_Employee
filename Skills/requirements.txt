@@ -15,6 +15,14 @@ python-dotenv>=1.0.0
 # Optional: for better logging
 colorlog>=6.7.0
 
+# LinkedIn MCP Server dependencies
+fastmcp>=3.0.0
+inquirer>=3.4.0
+patchright>=1.40.0
+
+# Playwright for browser automation
+playwright>=1.40.0
+
 # Testing dependencies
 pytest>=7.4.0
 pytest-asyncio>=0.21.0

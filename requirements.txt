@@ -29,6 +29,10 @@ facebook-sdk==3.1.0         # Facebook API
 # WhatsApp Integration (for Silver Tier)
 playwright==1.41.0          # Browser automation for WhatsApp Web
 
+# LinkedIn MCP Integration (for automated posting)
+linkedin-scraper-mcp>=4.0.0  # LinkedIn MCP Server
+patchright>=1.40.0           # Playwright fork for LinkedIn automation
+
 # Utilities
 pathlib2==2.3.7             # Path handling (Python 3.4+ compatibility)
 python-dateutil==2.8.2      # Date parsing

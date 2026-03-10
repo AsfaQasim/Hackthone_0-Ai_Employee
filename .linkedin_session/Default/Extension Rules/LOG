@@ -1,2 +1,3 @@
-2026/02/26-10:36:22.686 9488 Creating DB F:\hackthone_0\.linkedin_session\Default\Extension Rules since it was missing.
-2026/02/26-10:36:22.964 9488 Reusing MANIFEST F:\hackthone_0\.linkedin_session\Default\Extension Rules/MANIFEST-000001
+2026/03/10-23:58:07.806 dc58 Reusing MANIFEST F:\hackthone_0\.linkedin_session\Default\Extension Rules/MANIFEST-000001
+2026/03/10-23:58:07.825 dc58 Recovering log #3
+2026/03/10-23:58:07.828 dc58 Reusing old log F:\hackthone_0\.linkedin_session\Default\Extension Rules/000003.log 
