@@ -1,3 +1,6 @@
-2026/03/07-15:05:41.965 7640 Reusing MANIFEST F:\hackthone_0\.facebook_session\Default\Local Storage\leveldb/MANIFEST-000001
-2026/03/07-15:05:41.986 7640 Recovering log #3
-2026/03/07-15:05:41.993 7640 Reusing old log F:\hackthone_0\.facebook_session\Default\Local Storage\leveldb/000003.log 
+2026/03/12-23:28:46.558 6c20 Reusing MANIFEST F:\hackthone_0\.facebook_session\Default\Local Storage\leveldb/MANIFEST-000001
+2026/03/12-23:28:46.575 6c20 Recovering log #3
+2026/03/12-23:28:46.578 6c20 Reusing old log F:\hackthone_0\.facebook_session\Default\Local Storage\leveldb/000003.log 
+2026/03/12-23:30:48.379 8878 Level-0 table #5: started
+2026/03/12-23:30:48.392 8878 Level-0 table #5: 16723 bytes OK
+2026/03/12-23:30:48.396 8878 Delete type=0 #3
