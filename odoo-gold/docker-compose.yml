@@ -1,0 +1,45 @@
+services:
+  db:
+    image: postgres:15
+    container_name: odoo_gold_db
+    environment:
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo_gold_pass
+      - POSTGRES_DB=postgres
+      - POSTGRES_HOST_AUTH_METHOD=md5
+    volumes:
+      - odoo-gold-pgdata-v2:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U odoo"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  odoo:
+    image: odoo:17.0
+    container_name: odoo_gold_app
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8069:8069"
+      - "8072:8072"
+    environment:
+      - HOST=db
+      - PORT=5432
+      - USER=odoo
+      - PASSWORD=odoo_gold_pass
+    volumes:
+      - odoo-gold-data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - ./addons:/mnt/extra-addons
+    restart: unless-stopped
+
+volumes:
+  odoo-gold-pgdata-v2:
+    driver: local
+  odoo-gold-data:
+    driver: local
